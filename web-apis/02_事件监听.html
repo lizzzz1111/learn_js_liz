@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background-color: #fff;
+            border: 1px solid grey;
+        }
+
+        .title {
+            text-align: center;
+            height: 10px;
+            line-height: 10px;
+        }
+
+        .btn-left {
+            position: absolute;
+            width: 80px;
+            bottom: 20px;
+            left: 20px;
+        }
+
+        .btn-right {
+            position: absolute;
+            width: 80px;
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="title">标题</h3>
+        <div class="name"></div>
+        <button class="btn-left">开始</button>
+        <button class="btn-right">结束</button>
+
+    </div>
+    <div class="event1">qaq</div>
+    <script>
+        // const even1 = document.querySelector('.event1');
+        // even1.addEventListener('mouseover', function () {
+        //     even1.style.backgroundColor = 'pink';
+        // });
+        // even1.addEventListener('mouseout', function () {
+        //     even1.style.backgroundColor = 'white';
+        // });
+
+        //随机点名
+        const leftButton = document.querySelector('.btn-left');
+        const rightButton = document.querySelector('.btn-right');
+        const nameText = document.querySelector('.name');
+        const nameList = ['小红', '小李', '小王'];
+        let timerId = 0;
+        leftButton.addEventListener('click', function () {
+            timerId = setInterval(function () {
+                const random = parseInt(Math.random() * nameList.length);
+                nameText.innerHTML = `当前点到了:${nameList[random]}`;
+            }, 35);
+
+
+        })
+        rightButton.addEventListener('click', function () {
+            clearInterval(timerId);
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

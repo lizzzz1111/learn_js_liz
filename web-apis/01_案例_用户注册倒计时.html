@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea cols="30" rows="10">
+        请输入请输入请输入请输入请输入请输入请输入请输入请输
+        入请输入请输入请输入请输入请输入请输入请输入请输入请输入请输入请输入
+        请输入请输入请输入请输入请输入请输入请输入请输入请输入请输入请输入请输
+        入请输入请输入请输入请输入
+    </textarea>
+    <br>
+    <button class="btn" disabled></button>
+    <script>
+        const button = document.querySelector('.btn');
+        let i = 60;
+        let n = setInterval(function () {
+            i--;
+            button.innerHTML = `我已阅读用户协议（${i}）`;
+            if (i === 0) {
+                clearInterval(n);
+                button.disabled = false;
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

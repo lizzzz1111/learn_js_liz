@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .qs {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+        }
+
+        #nav {
+            width: 200px;
+            height: 300px;
+            background-color: aquamarine;
+        }
+
+        .qs1 {
+            width: 200px;
+            height: 100px;
+            background-color: rgb(217, 42, 42);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="qs"></div>
+    <div class="qs"></div>
+    <div id="nav"></div>
+    <img src="images/usagi_1.jpg">
+    <script>
+        // 得到一个伪数组
+        const qsList = document.querySelectorAll('.qs');
+        //这里的qs只是选择的第一个
+        const qs = document.querySelector('.qs');
+        // qs.style.backgroundColor = 'pink';
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N;
+        }
+        const pic = document.querySelector('img');
+        const random = getRandom(1, 2);
+        pic.src = `images/usagi_${random}.jpg`;
+        qs.className = 'qs1';
+
+    </script>
+</body>
+
+</html>
