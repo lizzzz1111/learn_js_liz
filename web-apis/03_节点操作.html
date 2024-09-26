@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>删除节点</button>
+    <ul>
+        <li>节点1</li>
+        <li>节点2</li>
+        <li>节点3</li>
+    </ul>
+    <script>
+        // 1.获取元素
+        let btn = document.querySelector('button');
+        let ul = document.querySelector('ul');
+        // 2.给按钮绑定点击事件
+        btn.onclick = function () {
+            if (ul.children.length == 0) {
+                this.disabled = true;
+            } else { ul.removeChild(ul.children[0]) }
+        }
+
+        //ul 
+        //只有设置为true深拷贝才能复制里面的文字
+        let li_copy = ul.children[0].cloneNode(true);
+        ul.appendChild(li_copy);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>当前时间<span id="currentTime"></span></p>
+    <script>
+        //当前时间
+        const date1 = new Date();
+        //指定时间
+        const date2 = new Date('2024-09-28');
+        console.log(date1);
+        console.log(date2);
+        // 格式化时间
+        const currentTime = document.querySelector('#currentTime');
+        function getCurrentTimeFormatted() {
+            const now = new Date();
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+            return Intl.DateTimeFormat('zh-CN', options).format(now);
+        }
+        currentTime.innerHTML = getCurrentTimeFormatted();
+        //时间戳
+        const nowInMilliseconds = Date.now();
+        console.log(nowInMilliseconds); // 输出当前时间的毫秒时间戳
+        const nowInSeconds = Math.floor(Date.now() / 1000);
+        console.log(nowInSeconds); // 输出当前时间的秒时间戳
+        const date = new Date();
+        const timestampInMilliseconds = date.getTime();
+        console.log(timestampInMilliseconds); // 输出当前时间的毫秒时间戳
+
+    </script>
+</body>
+
+</html>
