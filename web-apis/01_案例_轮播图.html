@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .slider {
+            width: 560px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            width: 100%;
+            height: 320px;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .slider-footer {
+            height: 80px;
+            background-color: rgb(100, 67, 68);
+            padding: 12px 12px 0 12px;
+            position: relative;
+        }
+
+        .slider-footer .toggle {
+            position: absolute;
+            right: 0;
+            top: 12px;
+            display: flex;
+        }
+
+        .slider-footer .toggle button {
+            margin-right: 12px;
+            width: 28px;
+            height: 28px;
+            appearance: none;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .slider-footer .toggle button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .slider-footer p {
+            margin: 0;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .slider-indicator {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .slider-indicator li {
+            width: 8px;
+            height: 8px;
+            margin: 4px;
+            border-radius: 50%;
+            background: #fff;
+            opacity: 0.4;
+            cursor: pointer;
+        }
+
+        .slider-indicator li.active {
+            width: 12px;
+            height: 12px;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="slider-wrapper">
+            <img src="images\slider01.jpg" alt="">
+        </div>
+        <div class="slider-footer">
+            <p>默认标题</p>
+            <ul class="slider-indicator">
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="toggle">
+                <button class="prev">&lt;</button>
+                <button class="next">&gt;</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        //随机播放版轮播图
+        const sliderData = [
+            { url: 'images//slider01.jpg', title: 'title01' },
+            { url: 'images//slider02.jpg', title: 'title02' },
+            { url: 'images//slider03.jpg', title: 'title03' },
+            { url: 'images//slider04.jpg', title: 'title04' },
+            { url: 'images//slider05.jpg', title: 'title05' },
+            { url: 'images//slider06.jpg', title: 'title06' },
+            { url: 'images//slider07.jpg', title: 'title07' },
+            { url: 'images//slider08.jpg', title: 'title08' },
+        ];
+        let i = 0;
+        const sliderIndicator = document.querySelector('.slider-indicator');
+        const img = document.querySelector('.slider-wrapper img');
+        const p = document.querySelector('.slider-footer p');
+        function fn() {
+            i++;
+            if (i > sliderData.length) {
+                i = 0;
+            }
+            img.src = sliderData[i].url;
+            p.innerHTML = sliderData[i].title;
+            document.querySelector('.slider-indicator .active').classList.remove('active');
+            document.querySelector(`.slider-indicator li:nth-child(${i + 1})`).classList.add('active');
+        }
+        setInterval(fn, 1000);
+
+    </script>
+</body>
+
+</html>
