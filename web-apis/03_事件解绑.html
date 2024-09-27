@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn1">
+        CLICK_1
+    </button>
+    <button class="btn2">
+        CLICK_2
+    </button>
+    <script>
+        const btn1 = document.querySelector('.btn1');
+        const btn2 = document.querySelector('.btn2');
+        //解绑方法一
+        btn1.onclick = function () {
+            alert('点击了');
+            btn1.onclick = null;
+            //一次调用后事件解绑，实现只能点击一次按钮
+        }
+        //解绑方法二
+        function fn() {
+            alert('点击了');
+            btn2.removeEventListener('click', fn);
+
+        }
+        btn2.addEventListener('click', fn);
+
+    </script>
+</body>
+
+</html>

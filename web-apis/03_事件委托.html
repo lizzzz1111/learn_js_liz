@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        const ul = document.querySelector('ul');
+
+        function changeBackgroundColor() {
+            this.style.backgroundColor = 'pink';
+        }
+
+        // 通过事件冒泡实现委托
+        //减少事件注册次数从而优化性能
+        ul.addEventListener('click', function (e) {
+            // 检查是否点击的是 li 元素
+            //这里也可以是TargetName
+            if (e.target && e.target.nodeName === 'LI') {
+                // 使用 .call 来设置 this 为 e.target
+                changeBackgroundColor.call(e.target);
+            }
+            e.stopPropagation();  // 阻止事件冒泡
+        });
+    </script>
+
+</body>
+
+</html>

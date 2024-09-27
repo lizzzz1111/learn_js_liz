@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 500px;
+            height: 300px;
+            background-color: pink;
+        }
+
+        .son {
+            width: 300px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        const father = document.querySelector('.father');
+        const son = document.querySelector('.son');
+
+        document.addEventListener('click', function () {
+            console.log('grandpa');
+        })
+        father.addEventListener('click', function () {
+            console.log('father');
+        })
+        son.addEventListener('click', function (e) {
+            console.log('son');
+            e.stopPropagation();
+        })
+
+
+
+
+
+    </script>
+    <!-- 事件捕获
+     注意这里第三个参数设置为true表明使用捕获机制，
+     实际开发过程中第三个参数一般省略默认为false
+     同名事件从父到子依次查找
+     爷爷-爸爸-儿子
+    div.addEventListener('click',fn,true); -->
+    <!-- document -> html ->body ->div -->
+
+
+    <!-- 事件冒泡 
+     默认情况下冒泡一定会发生
+     一个元素事件触发后依次向上调用父元素的同名事件
+     儿子-爸爸-爷爷
+     实际工作以冒泡为主 
+    document <- html <-body <-div -->
+
+    <!--event.stopPropagation()  
+    阻止事件流动传播
+    既能阻止事件冒泡也能阻止事件捕获-->
+
+</body>
+
+</html>
