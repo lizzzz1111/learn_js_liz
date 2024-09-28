@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //快捷键：ctrl+g 快速定位某行
+
+        //等待页面全部资源加载完后执行
+        window.addEventListener('load', function () {
+
+        })
+        //等待图片加载完后执行
+        // img.addEventListener('load', function () {
+
+        // })
+        //无需等待图片、样式表完全被加载
+        document.addEventListener('DOMContentLoaded', function () {
+
+        })
+        //获取页面滚动距离scrollTop
+        window.addEventListener('scroll', function () {
+            //</html>获取方法document.documentElement
+            alert(document.documentElement.scrollTop);
+        })
+        //回到页面顶部
+        //方法一
+        window.scrollTo(0, 0);
+        //方法二
+        document.documentElement.scrollTop = 0;
+    </script>
+</body>
+
+</html>
