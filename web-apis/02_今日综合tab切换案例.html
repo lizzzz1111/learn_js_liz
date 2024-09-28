@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            color: #333;
+        }
+
+        .container {
+            width: 400px;
+            height: 300px;
+            background-color: #fff;
+        }
+
+        .top {
+            height: 100px;
+            background-color: pink;
+        }
+
+        .top ul li {
+            margin-top: 20px;
+            list-style: none;
+            float: left;
+            width: 100px;
+            text-align: center;
+        }
+
+        .bottom {
+            height: 200px;
+            background-color: antiquewhite;
+        }
+
+        .content {
+            height: 200px;
+            background-color: cadetblue;
+            display: none;
+        }
+
+        .bottom .active {
+            display: block;
+        }
+
+
+        .top a.active {
+            border-color: #e1251b;
+            color: #e1251b;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="top">
+            <ul>
+                <li><a class="active" href="">语文</a></li>
+                <li><a href="">数学</a></li>
+                <li><a href="">英文</a></li>
+                <li><a href="">物理</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="content active">语文对应部分QUQ</div>
+            <div class="content">数学对应部分QAQ</div>
+            <div class="content">英语对应部分TAT</div>
+            <div class="content">物理对应部分= =</div>
+        </div>
+    </div>
+    <script>
+        const as = document.querySelectorAll('a');
+        const contents = document.querySelectorAll('.content');
+
+        for (let i = 0; i < as.length; i++) {
+            as[i].addEventListener('mouseenter', function () {
+                const activeTop = document.querySelector('.top .active');
+                const activeBottom = document.querySelector('.bottom .active');
+                if (activeTop != null) {
+                    activeTop.classList.remove('active');
+                }
+
+                this.classList.add('active');
+                if (activeBottom != null) {
+                    activeBottom.classList.remove('active');
+                }
+                contents[i].classList.add('active');
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>
