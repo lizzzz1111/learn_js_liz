@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //简单理解：闭包 = 内存函数+外层函数变量的引用
+        //通过闭包可以实现在外部访问函数内部变量
+        function outer() {
+            const a = 1;
+            function inner() {
+                console.log(a);
+            }
+            inner();
+        }
+        outer();
+
+        //闭包的应用：
+        //1. 封装私有变量
+        function outer1() {
+            let a = 1;
+            function inner1() {
+                console.log(a);
+                a++;
+
+            }
+            return inner1;
+        }
+
+        const result = outer1();
+        result();//1
+        result();//2
+
+        //变量提升
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //构造函数
+        // 1. 使用 new 关键字调用函数的行为被称为实例化
+        // 2. 实例化构造函数时没有参数时可以省略()
+        // 3. 构造函数内部无需写return，返回值即为新创建的对象
+        // 4. 构造函数内部的 return 返回的值无效，所以不要写return
+        // 5. new Object（） new Date（） 也是实例化构造函数
+        function Obj(name) {
+            this.name = name;
+        }
+        //创建对象的三种方式
+        //使用字面量
+        const obj1 = {
+            name: 'obj1'
+        };
+        //使用 new Object()（实际上也是使用构造函数，只是js内置构造函数
+        const obj2 = new Object({
+            name: 'obj2'
+        })
+        //使用构造函数
+        const obj3 = new Obj('obj3');
+        console.log(obj1);
+        console.log(obj2);
+        console.log(obj3);
+
+    </script>
+</body>
+
+</html>

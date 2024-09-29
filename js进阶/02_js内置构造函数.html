@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const o = {
+            name: 'o',
+            age: 18
+
+        }
+
+        for (let k in o) {
+            console.log(k); //name age
+            console.log(o[k]); //o 18
+        }
+
+        const arr = Object.keys(o);
+        console.log(arr); //['name','age']
+    </script>
+</body>
+
+</html>
