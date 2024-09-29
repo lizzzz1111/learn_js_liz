@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Star(uname, age) {
+            this.name = uname;
+            this.age = age;
+        }
+        //提供的原型对象可以挂载函数，对象实例化不会多次创建原型上的函数，节约内存
+        //因此可以把不变的方法挂载到原型对象上，节约内存
+        console.log(Star.prototype);
+        Star.prototype.sing = function () {
+            console.log('唱歌~~~');
+        }
+        const singer1 = new Star('liz1', 17);
+        const singer2 = new Star('liz2', 18);
+        //返回true 说明sing是同一个方法
+        console.log(singer1.sing === singer2.sing);
+    </script>
+
+</body>
+
+</html>

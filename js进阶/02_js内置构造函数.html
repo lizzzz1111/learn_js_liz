@@ -9,6 +9,12 @@
 
 <body>
     <script>
+
+
+        // • Object
+        // • Array
+        // • String
+        // • Number
         const o = {
             name: 'o',
             age: 18
@@ -20,8 +26,38 @@
             console.log(o[k]); //o 18
         }
 
-        const arr = Object.keys(o);
-        console.log(arr); //['name','age']
+        const arr1 = Object.keys(o);
+        const arr2 = Object.values(o);
+        //返回的是数组
+        console.log(arr1); //['name','age']
+        console.log(arr2); //['o',18]
+
+        //对象拷贝
+        Object.assign(o, { gender: 'female' });
+        console.log(o); //{name: 'o', age: 18, gender: 'female'}
+
+        // Array方法
+        //map() 方法创建一个新数组，其结果是对调用数组中的每个元素执行提供的函数
+        const numbers1 = [1, 2, 3, 4];
+        const squares = numbers1.map(num => num * num);
+        console.log(squares); // [1, 4, 9, 16]
+        //filter() 方法创建一个新数组，其中包含通过测试的所有元素。该测试由提供的函数实现
+        const numbers2 = [1, 2, 3, 4, 5, 6];
+        const evenNumbers = numbers2.filter(num => num % 2 === 0);
+        console.log(evenNumbers); // [2, 4, 6]
+        //reduce() 方法对数组中的每个元素执行一个由提供的 reducer 函数（升序执行），将其结果汇总为单个返回值
+        const numbers = [1, 2, 3, 4];
+        const sum = numbers.reduce((acc, curr) => acc + curr, 0);
+        console.log(sum); // 10
+        //forEach() 方法对数组的每个元素执行一次提供的函数
+        const colors = ['red', 'green', 'blue'];
+        colors.forEach(color => {
+            console.log(color);
+        });
+        // 输出:
+        // red
+        // green
+        // blue
     </script>
 </body>
 
