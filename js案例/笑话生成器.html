@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 40vw;
+            height: 40vh;
+            border: 1px solid black;
+            font-size: 16px;
+            line-height: 3;
+
+        }
+
+        .input-text {
+            width: 40%;
+        }
+
+        .prompt {
+            display: inline-block;
+            font-size: 16px;
+
+        }
+
+        /* padding、margin不改变盒子大小的情况 */
+        .output-text {
+            background-color: orange;
+            margin: 10px;
+            text-indent: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="prompt">请输入自定义的名字：</div>
+        <input class="input-text" type="text" placeholder="李磊">
+        <div class="select-area">
+            <input type="radio" id="option1" name="choice" value="option1"> 中文
+            <input type="radio" id="option2" name="choice" value="option2">英文
+        </div>
+        <button>随机生成笑话</button>
+        <div class="output-text">笑话内容</div>
+
+    </div>
+    <script>
+        const prompt = document.querySelector(".prompt");
+        const inputText = document.querySelector(".input-text");
+
+    </script>
+</body>
+
+</html>
